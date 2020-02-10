@@ -1,0 +1,60 @@
+<html>
+    <head>
+        <title>
+            Rock Paper Scissors
+        </title>
+    </head>
+    <body>
+        <script>
+            function singleRound(playerSelection,computerSelection){
+                playerSelection=playerSelection.toLowerCase();
+                computerSelection=computerSelection.toLowerCase();
+                if(playerSelection!="rock" && playerSelection!="paper" && playerSelection!="scissors"){
+                    alert("Please make a valid choice; rock, paper or scissors!");
+                    return 0;
+                }
+                else if(playerSelection=="rock" && computerSelection == "scissors"){
+                    alert(`Good, ${playerSelection} beats ${computerSelection}`);
+                    return 1;
+                }
+                else if(playerSelection=="scissors" && computerSelection == "paper"){
+                    alert(`Good, ${playerSelection} beats ${computerSelection}`);
+                    return 1;
+                }
+                else if(playerSelection=="paper" && computerSelection == "rock"){
+                    alert(`Good, ${playerSelection} beats ${computerSelection}`);
+                    return 1;
+                }
+                else if(playerSelection==computerSelection){
+                    alert(`Draw! choose again, ${playerSelection} is equal with ${computerSelection}`);
+                    return 0;
+                }
+                else {
+                    alert(`You Lose!, ${playerSelection} loses ${computerSelection}`);
+                    return -1;
+                }
+            }
+            function computerPlay(){
+                let choices=["rock","paper","scissors"];
+                return choices[Math.floor(Math.random()*choices.length)];
+            }
+            function game(){
+                let round=1;
+                let score=0;
+                while (round<=5){
+                    const playerSelection=prompt(`Round ${round}, Please type your selection; rock, paper or scissors`, "");
+                    const computerSelection=computerPlay();
+                    let roundScore=singleRound(playerSelection,computerSelection);
+                    if(roundScore!=0){
+                        round++;
+                        score+=roundScore;
+                    }
+                }
+                if(score>0 ) alert("Congratulations, you win!")
+                else if(score==0) alert("None of you is the winner! Draw...")
+                else if(score<0) alert("Bad for you, sorry but you lose!")
+            }
+            game();
+        </script>
+    </body>
+</html>
