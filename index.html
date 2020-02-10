@@ -42,7 +42,7 @@
                 let round=1;
                 let score=0;
                 while (round<=5){
-                    const playerSelection=prompt(`Round ${round}, Please type your selection; rock, paper or scissors`, "");
+                    const playerSelection=prompt(`Round ${round}/5, Please type your selection; rock, paper or scissors`, "");
                     const computerSelection=computerPlay();
                     let roundScore=singleRound(playerSelection,computerSelection);
                     if(roundScore!=0){
@@ -53,8 +53,9 @@
                 if(score>0 ) alert("Congratulations, you win!")
                 else if(score==0) alert("None of you is the winner! Draw...")
                 else if(score<0) alert("Bad for you, sorry but you lose!")
+                 
             }
-            game();
+            let newGame=game();
         </script>
     </body>
 </html>
